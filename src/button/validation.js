@@ -160,7 +160,7 @@ export function validateOrder(orderID : string, { env, clientID, merchantID, cur
     return getSupplementalOrderInfo(orderID).then(order => {
         const cart = order.checkoutSession.cart;
         const cartIntent = (cart.intent.toLowerCase() === 'sale') ? INTENT.CAPTURE : cart.intent.toLowerCase();
-        const initiationIntent = cart.initiationIntent;
+        const initiationIntent = cart.supplementary && cart.supplementary.initiationIntent;
         const cartCurrency = cart.amounts && cart.amounts.total.currencyCode;
         const cartAmount = cart.amounts && cart.amounts.total.currencyValue;
         const cartBillingType = cart.billingType;
