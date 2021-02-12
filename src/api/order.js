@@ -423,6 +423,9 @@ type SupplementalOrderInfo = {|
                     currencyValue : string,
                     currencyCode : string
                 |}
+            |},
+            supplementary? : {|
+                initiationIntent? : string
             |}
         |},
         buyer? : {|
